@@ -1,0 +1,8 @@
+micronaut:
+  application:
+    name: mnPricingKafka
+
+kafka:
+  bootstrap:
+    servers:
+      - localhost:9092
