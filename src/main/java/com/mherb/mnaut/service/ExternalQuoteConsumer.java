@@ -4,13 +4,14 @@ import com.mherb.mnaut.configuration.PriceUpdateProducer;
 import com.mherb.mnaut.domain.ExternalQuote;
 import com.mherb.mnaut.domain.PriceUpdate;
 import io.micronaut.configuration.kafka.annotation.KafkaListener;
+import io.micronaut.configuration.kafka.annotation.OffsetReset;
 import io.micronaut.configuration.kafka.annotation.Topic;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@KafkaListener(clientId = "mn-external-quote-consumer", groupId = "external-quote-consumer", batch = true)
+@KafkaListener(clientId = "mn-external-quote-consumer", groupId = "external-quote-consumer", batch = true, offsetReset = OffsetReset.EARLIEST)
 @Slf4j
 public class ExternalQuoteConsumer {
 

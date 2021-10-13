@@ -2,6 +2,8 @@ package com.mherb.mnaut.service;
 
 import com.mherb.mnaut.configuration.ExternalQuoteProducer;
 import com.mherb.mnaut.domain.ExternalQuote;
+import io.micronaut.context.annotation.Requires;
+import io.micronaut.context.env.Environment;
 import io.micronaut.scheduling.annotation.Scheduled;
 import jakarta.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +15,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @Singleton
 @Slf4j
+@Requires(notEnv = Environment.TEST)
 public class EventScheduler {
 
     private static final List<String> SYMBOLS = Arrays.asList("APPL", "AMZN", "GOOG", "FB", "TSLA", "MSFT", "NFLX");

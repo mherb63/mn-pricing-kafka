@@ -91,7 +91,7 @@ public class TestExternalQuoteConsumer {
 
         List<PriceUpdate> inspected = new ArrayList<>();
 
-        @Topic("price_update")
+        @Topic("price-update")
         void receive(List<PriceUpdate> priceUpdates) {
             log.debug("Consumed: {}", priceUpdates);
             inspected.addAll(priceUpdates);
